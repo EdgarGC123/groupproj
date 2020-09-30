@@ -27,12 +27,22 @@ class App extends React.Component {
     }
     submit = event => {
         event.preventDefault()
-        console.log(this.state)
-    }
+        // console.log(this.state)
+        axios
+          .post('/library', this.state)
+          .then(response => 
+            this.setState({
+              library: response.data, 
+              title: '', 
+              author: '', 
+              genre: '',
+              image: ''
+            })
+          )
+      }
 
     componentDidMount = () => {
         axios.get('/library').then(response => {
-            console.log(response.data)
             this.setState({
                 library: response.data
             })
@@ -45,21 +55,26 @@ class App extends React.Component {
         return (
             <div className="container">
                 {(showForm) 
-                    ?<form onSubmit={this.submit}>
-                        <label htmlFor="title">Title</label>
-                        <input type="text" id="title" onChange={this.change}/><br/>
+                    ?<div className="form-container">
+                        <form onSubmit={this.submit}>
+                            <label htmlFor="title">Title</label>
+                            <input type="text" id="title" onChange={this.change}/><br/>
 
-                        <label htmlFor="author">Author</label>
-                        <input type="text" id="author" onChange={this.change}/><br/>
+                            <label htmlFor="author">Author</label>
+                            <input type="text" id="author" onChange={this.change}/><br/>
 
-                        <label htmlFor="genre">Genre</label>
-                        <input type="text" id="genre" onChange={this.change}/><br/>
+                            <label htmlFor="genre">Genre</label>
+                            <input type="text" id="genre" onChange={this.change}/><br/>
 
-                        <label htmlFor="image">Image</label>
-                        <input type="text" id="image" onChange={this.change}/><br/>
+                            <label htmlFor="image">Image</label>
+                            <input type="text" id="image" onChange={this.change}/><br/>
 
-                        <input className="submit" type="submit" value="add new" onClick={this.formHide}/><br/>
-                    </form>
+                            <input className="submit" type="submit" value="add new"/><br/>
+                        </form>
+                        
+                        <button onClick={this.formHide}>Cancel</button>
+                    </div>
+                    
                     :<button onClick={this.formShow}>add new</button>
                 }
 
