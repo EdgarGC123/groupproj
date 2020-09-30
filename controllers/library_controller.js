@@ -34,9 +34,15 @@ library.post("/", (req,res)=>{
 
 //edit
 library.put("/:id", (req,res)=>{
-    // for(library of req.body.library){
-
-    // }
+    for(book of req.body.library){
+        if(book._id === req.params.id){
+            for(key in req.body){
+                if(!key){
+                    key = book[key]
+                }
+            }
+        }
+    }
     Library.findByIdAndUpdate(req.params.id, req.body, {new: true},(err, updatedLibrary)=>{
         if(err){
             res.send(err)
