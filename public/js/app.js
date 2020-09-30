@@ -30,14 +30,6 @@ class App extends React.Component {
         console.log(this.state)
     }
 
-    conponentDidMount = () => {
-        axios.get('/library'.then(response => {
-            this.setState({
-                library: response.data
-            })
-        }))
-    }
-
     // RENDER
     render = () => {
         let showForm = this.state.showForm
@@ -63,7 +55,7 @@ class App extends React.Component {
                 }
 
                 <ul>
-                    {this.state.library.map(book => {return(
+                    {this.state.library.map(book => {return (
                         <li key={book._id}>
                             {book.title}<br/>
                             <img src={book.image} alt={book.title}/>
