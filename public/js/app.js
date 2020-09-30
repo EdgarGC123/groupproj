@@ -30,6 +30,15 @@ class App extends React.Component {
         console.log(this.state)
     }
 
+    componentDidMount = () => {
+        axios.get('/library').then(response => {
+            console.log(response.data)
+            this.setState({
+                library: response.data
+            })
+        })
+    }
+
     // RENDER
     render = () => {
         let showForm = this.state.showForm
