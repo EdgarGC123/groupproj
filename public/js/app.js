@@ -1,7 +1,12 @@
 class App extends React.Component {
     // STATE
     state = {
-        showForm: false
+        showForm: false,
+        title: '',
+        author: '',
+        genre: '',
+        image: '',
+        library: []
     }
 
     // FUNCTIONS
@@ -15,29 +20,48 @@ class App extends React.Component {
             showForm: false
         })
     }
+
+    change = (event) => {
+        this.setState({[event.target.id]: event.target.value})
+        // console.log(this.state)
+    }
+    submit = event => {
+        event.preventDefault()
+        console.log(this.state)
+    }
+
     // RENDER
     render = () => {
         let showForm = this.state.showForm
         return (
             <div className="container">
                 {(showForm) 
-                    ?<form>
+                    ?<form onSubmit={this.submit}>
                         <label htmlFor="title">Title</label>
-                        <input type="text" id="name" /><br/>
+                        <input type="text" id="title" onChange={this.change}/><br/>
 
                         <label htmlFor="author">Author</label>
-                        <input type="text" id="author" /><br/>
+                        <input type="text" id="author" onChange={this.change}/><br/>
 
                         <label htmlFor="genre">Genre</label>
-                        <input type="text" id="genre" /><br/>
+                        <input type="text" id="genre" onChange={this.change}/><br/>
 
                         <label htmlFor="image">Image</label>
-                        <input type="text" id="image" /><br/>
+                        <input type="text" id="image" onChange={this.change}/><br/>
 
                         <input className="submit" type="submit" value="add new" onClick={this.formHide}/><br/>
                     </form>
                     :<button onClick={this.formShow}>add new</button>
                 }
+
+                <ul>
+                    {this.state.library.map(book => {return (
+                        <li key={book._id}>
+                            {book.title}<br/>
+                            <img src={book.image} alt={book.title}/>
+                        </li>
+                    )})}
+                </ul>
                 
             </div>
         )
