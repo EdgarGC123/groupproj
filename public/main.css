@@ -1,6 +1,6 @@
-* {
+/* * {
     border: solid gold;
-}
+} */
 button, .submit {
     background: gold;
     padding: 0.5em;
@@ -20,20 +20,22 @@ ul {
     justify-content: space-around;
 }
 li {
+    text-align: center;
     display: flex;
     flex-flow: column;
     justify-content: space-between;
     align-items: center;
-    flex-basis: 18%;
+    flex-basis: 20%;
     margin: 2%;
     background: #12121212;
     box-sizing: border-box;
     padding: 2%;
-    box-shadow: 5px 5px 50px silver;
+    box-shadow: 5px 5px 50px #596e79;
     border-radius: 30px;
 }
 li > img {
     width: 200px;
     display: block;
     border-radius: 6px;
+    height: 300px
 }
