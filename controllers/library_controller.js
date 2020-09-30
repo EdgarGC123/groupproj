@@ -3,6 +3,16 @@ const library = express.Router()
 
 const Library = require("../models/library.js")
 
+const libSeed = require("../models/library_seed.js")
+
+//seed
+library.get("/seed", (req,res)=>{
+    Library.create({libSeed}, (err,seedData)=>{
+        Library.find({}, (err, foundLibraries)=>{
+            res.json(foundLibraries)
+        })
+    })
+})
 //index
 library.get("/", (req,res)=>{
     Library.find({}, (err, foundLibraries)=>{
