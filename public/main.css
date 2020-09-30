@@ -2,9 +2,10 @@
     border: solid gold;
 } */
 button, .submit {
-    background: gold;
+    background: #596e79;
     padding: 0.5em;
     margin: 0.5em;
+    color: #f0ece3;
 }
 body {
     background-color: #f0ece3;
@@ -27,7 +28,7 @@ li {
     align-items: center;
     flex-basis: 20%;
     margin: 2%;
-    background: #12121212;
+    background: #dfd3c3;
     box-sizing: border-box;
     padding: 2%;
     box-shadow: 5px 5px 50px #596e79;
@@ -38,4 +39,8 @@ li > img {
     display: block;
     border-radius: 6px;
     height: 300px
+}
+p {
+    color: #596e79;
+    text-decoration: underline;
 }
