@@ -12,6 +12,8 @@ app.use(express.json())
 app.use(express.static("public"))
 
 //controllers
+const libraryController = require("./controllers/library_controller.js")
+app.use("/library", libraryController)
 
 
 //connection
