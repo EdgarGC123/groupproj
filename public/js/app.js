@@ -59,7 +59,15 @@ class App extends React.Component {
     updateBook = (event) => {
         event.preventDefault()
         const id = event.target.id
-        
+        axios.put('/library/' + id, this.state).then(response => {
+            this.setState({
+                library: response.data,
+                title: '', 
+                author: '',
+                genre: '',
+                image: ''
+            })
+        })
     }
 
     // RENDER
