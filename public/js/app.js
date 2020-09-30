@@ -56,6 +56,12 @@ class App extends React.Component {
         })
     }
 
+    updateBook = (event) => {
+        event.preventDefault()
+        const id = event.target.id
+        
+    }
+
     // RENDER
     render = () => {
         let showForm = this.state.showForm
@@ -93,6 +99,25 @@ class App extends React.Component {
                             <button value={book._id} onClick={this.delete}>
                                 DELETE
                             </button>
+
+                            <details>
+                                <summary>Edit</summary>
+                                <form id={book._id} onSubmit={this.updateBook}>
+                                    <label htmlFor="title">Title</label><br/>
+                                    <input type="text" id="title" onChange={this.change}/><br/>
+
+                                    <label htmlFor="author">Author</label><br/>
+                                    <input type="text" id="author" onChange={this.change}/><br/>
+
+                                    <label htmlFor="genre">Genre</label><br/>
+                                    <input type="text" id="genre" onChange={this.change}/><br/>
+
+                                    <label htmlFor="image">Image</label><br/>
+                                    <input type="text" id="image" onChange={this.change}/><br/>
+
+                                    <input type="submit" value="Update Animal" />
+                                </form>
+                            </details>
                         </li>
                     )})}
                 </ul>
