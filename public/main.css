@@ -1,7 +1,11 @@
 * {
     border: solid gold;
 }
-
+button, .submit {
+    background: gold;
+    padding: 0.5em;
+    margin: 0.5em;
+}
 body {
     background-color: #f0ece3;
 }
@@ -9,10 +13,6 @@ h1 {
     text-align: center;
     color: #596e79;
     text-shadow: 1px 1px 2px #c7b198;
-}
-img {
-    width: 200px;
-    display: block;
 }
 ul {
     display: flex;
@@ -24,15 +24,16 @@ li {
     flex-flow: column;
     justify-content: space-between;
     align-items: center;
-    flex-basis: 28%;
+    flex-basis: 18%;
     margin: 2%;
     background: #12121212;
     box-sizing: border-box;
     padding: 2%;
-    box-shadow: 2px 2px 4px gold;
+    box-shadow: 5px 5px 50px silver;
+    border-radius: 30px;
 }
-button, .submit {
-    background: gold;
-    padding: 0.5em;
-    margin: 0.5em;
+li > img {
+    width: 200px;
+    display: block;
+    border-radius: 6px;
 }
