@@ -1,18 +1,21 @@
-
+body {
+    background-color: #f0ece3;
+}
 h1 {
     text-align: center;
-    text-shadow: 1px 1px 2px gold;
-  }
-  img {
+    color: #596e79;
+    text-shadow: 1px 1px 2px #c7b198;
+}
+img {
     width: 200px;
     display: block;
-  }
-  ul {
+}
+ul {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-  }
-  li {
+}
+li {
     display: flex;
     flex-flow: column;
     justify-content: space-between;
@@ -23,9 +26,9 @@ h1 {
     box-sizing: border-box;
     padding: 2%;
     box-shadow: 2px 2px 4px gold;
-  }
-  button {
+}
+button, .submit {
     background: gold;
     padding: 0.5em;
     margin: 0.5em;
-  }
+}
