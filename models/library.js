@@ -7,6 +7,6 @@ const librarySchema = new mongoose.Schema({
   image: String,
 })
 
-const Library = mongoose.model('Library', shelterSchema)
+const Library = mongoose.model('Library', librarySchema)
 
 module.exports = Library

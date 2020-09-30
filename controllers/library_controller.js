@@ -57,3 +57,5 @@ library.patch("/:id", (req,res)=>{
         }
     })
 })
+
+module.exports = library
