@@ -11,39 +11,47 @@ library.get("/seed", (req,res)=>{
             res.redirect("/")
     })
 })
+//drop
+library.get("/confirm/drop",(req,res)=>{
+    Library.collection.drop()
+    res.redirect("/")
+})
 //index
 library.get("/", (req,res)=>{
-    Library.find({}, (err, foundLibraries)=>{
-        res.json(foundAnimal)
+    Library.find({}, (err, foundBooks)=>{
+        res.json(foundBooks)
     })
 })
 
 //create
 library.post("/", (req,res)=>{
-    Library.create(req.body, (err, createdLibrary)=>{
-        Library.find({}, (err, foundLibraries)=>{
-            res.json(foundAnimal)
+    Library.create(req.body, (err, createdBook)=>{
+        Library.find({}, (err, foundBooks)=>{
+            res.json(foundBooks)
         })
     })
 })
 
 //edit
 library.put("/:id", (req,res)=>{
+    // for(library of req.body.library){
+
+    // }
     Library.findByIdAndUpdate(req.params.id, req.body, {new: true},(err, updatedLibrary)=>{
         if(err){
             res.send(err)
         }else{
-            Library.find({}, (err, foundLibraries)=>{
-                res.json(foundAnimal)
+            Library.find({}, (err, foundBooks)=>{
+                res.json(foundBooks)
             })
         }
     })
 })
 //delete
 library.delete("/:id", (req,res)=>{
-    Library.findByIdAndDelete(req.params.id, (err, deletedLibrary)=>{
-        Library.find({}, (err, foundLibraries)=>{
-            res.json(foundAnimal)
+    Library.findByIdAndDelete(req.params.id, (err, deletedBook)=>{
+        Library.find({}, (err, foundBooks)=>{
+            res.json(foundBooks)
         })
     })
 })
@@ -59,8 +67,8 @@ library.patch("/:id", (req,res)=>{
         if (err) {
             res.send(err)
         } else {
-            Shelter.find({}, (err, foundAnimal) => {
-            res.json(foundAnimal)
+            Library.find({}, (err, foundBooks)=>{
+                res.json(foundBooks)
             })
         }
     })
