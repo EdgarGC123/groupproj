@@ -34,5 +34,5 @@ module.exports = [
         author: 'George Orwell',
         genre: 'Literary Fiction',
         image: 'https://prodimage.images-bn.com/pimages/9780451524935_p0_v5_s550x406.jpg'
-    },
+    }
 ]

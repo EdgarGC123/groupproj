@@ -7,10 +7,8 @@ const libSeed = require("../models/library_seed.js")
 
 //seed
 library.get("/seed", (req,res)=>{
-    Library.create({libSeed}, (err,seedData)=>{
-        Library.find({}, (err, foundLibraries)=>{
-            res.json(foundLibraries)
-        })
+    Library.create(libSeed, (err,seedData)=>{
+            res.redirect("/")
     })
 })
 //index
