@@ -43,9 +43,10 @@ class App extends React.Component {
               title: '', 
               author: '', 
               genre: '',
-              image: ''
+              image: '',
+              showForm: false
             })
-          )
+        )
     }
 
     delete = (event) => {
