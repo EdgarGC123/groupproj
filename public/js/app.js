@@ -43,9 +43,10 @@ class App extends React.Component {
               title: '', 
               author: '', 
               genre: '',
-              image: ''
+              image: '',
+              showForm: false
             })
-          )
+        )
     }
 
     delete = (event) => {
@@ -59,7 +60,15 @@ class App extends React.Component {
     updateBook = (event) => {
         event.preventDefault()
         const id = event.target.id
-        
+        axios.put('/library/' + id, this.state).then(response => {
+            this.setState({
+                library: response.data,
+                title: '', 
+                author: '',
+                genre: '',
+                image: ''
+            })
+        })
     }
 
     // RENDER
@@ -94,7 +103,7 @@ class App extends React.Component {
                 <ul>
                     {this.state.library.map(book => {return (
                         <li key={book._id}>
-                            {book.title}<br/>
+                            <p>{book.title}</p><br/>
                             <img src={book.image} alt={book.title}/>
                             <button value={book._id} onClick={this.delete}>
                                 DELETE
