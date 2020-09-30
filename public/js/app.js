@@ -55,7 +55,7 @@ class App extends React.Component {
                 }
 
                 <ul>
-                    {this.state.library.map(book => {return (
+                    {this.state.library.map(book => {return(
                         <li key={book._id}>
                             {book.title}<br/>
                             <img src={book.image} alt={book.title}/>
