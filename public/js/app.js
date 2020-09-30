@@ -10,6 +10,13 @@ class App extends React.Component {
     }
 
     // FUNCTIONS
+    componentDidMount = () => {
+        axios.get('/library').then(response => {
+            this.setState({
+                library: response.data
+            })
+        })
+    }
     formShow = () => {
         this.setState({
             showForm: true
@@ -39,10 +46,10 @@ class App extends React.Component {
               image: ''
             })
           )
-      }
+    }
 
-    componentDidMount = () => {
-        axios.get('/library').then(response => {
+    delete = (event) => {
+        axios.delete('/library/' + event.target.value).then(response => {
             this.setState({
                 library: response.data
             })
@@ -83,6 +90,9 @@ class App extends React.Component {
                         <li key={book._id}>
                             {book.title}<br/>
                             <img src={book.image} alt={book.title}/>
+                            <button value={book._id} onClick={this.delete}>
+                                DELETE
+                            </button>
                         </li>
                     )})}
                 </ul>
