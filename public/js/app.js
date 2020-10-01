@@ -2,6 +2,7 @@ class App extends React.Component {
     // STATE
     state = {
         showForm: false,
+        showDetails: false,
         title: '',
         author: '',
         genre: '',
@@ -103,7 +104,7 @@ class App extends React.Component {
                 <ul>
                     {this.state.library.map(book => {return (
                         <li key={book._id}>
-                            <p>{book.title}</p><br/>
+                            <p>{book.title} <br/> by: {book.author} <br/> Genre: {book.genre}</p>
                             <img src={book.image} alt={book.title}/>
                             <button value={book._id} onClick={this.delete}>
                                 DELETE
@@ -113,16 +114,16 @@ class App extends React.Component {
                                 <summary>Edit</summary>
                                 <form id={book._id} onSubmit={this.updateBook}>
                                     <label htmlFor="title">Title</label><br/>
-                                    <input type="text" id="title" onChange={this.change}/><br/>
+                                    <input type="text" id="title" defaultValue={book.title} onChange={this.change}/><br/>
 
                                     <label htmlFor="author">Author</label><br/>
-                                    <input type="text" id="author" onChange={this.change}/><br/>
+                                    <input type="text" id="author" defaultValue={book.author} onChange={this.change}/><br/>
 
                                     <label htmlFor="genre">Genre</label><br/>
-                                    <input type="text" id="genre" onChange={this.change}/><br/>
+                                    <input type="text" id="genre" defaultValue={book.genre} onChange={this.change}/><br/>
 
                                     <label htmlFor="image">Image</label><br/>
-                                    <input type="text" id="image" onChange={this.change}/><br/>
+                                    <input type="text" id="image" defaultValue={book.image} onChange={this.change}/><br/>
 
                                     <input type="submit" value="Update Animal" />
                                 </form>

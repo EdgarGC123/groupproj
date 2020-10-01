@@ -36,9 +36,9 @@ library.post("/", (req,res)=>{
 library.put("/:id", (req,res)=>{
     for(book of req.body.library){
         if(book._id === req.params.id){
-            for(key in req.body){
-                if(!key){
-                    key = book[key]
+            for(key in book){
+                if(!req.body[key]){
+                    req.body[key] = book[key]
                 }
             }
         }
